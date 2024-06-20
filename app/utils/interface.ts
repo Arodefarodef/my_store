@@ -1,3 +1,7 @@
+import { VariantProps } from "class-variance-authority";
+import { ButtonHTMLAttributes, ReactNode } from "react";
+import { newButtonVar } from "../reuse/variance";
+
 export interface iUser {
   Name: string;
   email: string;
@@ -12,4 +16,11 @@ export interface iProduct {
   image: string;
   description: string;
   quantity: number;
+}
+
+export interface iButton
+  extends ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof newButtonVar> {
+  children: ReactNode;
+  icon?: ReactNode;
 }
