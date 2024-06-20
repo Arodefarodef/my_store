@@ -1,11 +1,11 @@
 import myUserModel from "@/app/utils/model/usermodel";
 import { NextRequest, NextResponse } from "next/server";
-import { dbconfig } from "@/app/utils/dbconfig";
+import { dbConfig } from "@/app/utils/dbconfig";
 import bcryptjs from "bcryptjs";
 
 export const POST = async (req: NextRequest) => {
   try {
-    await dbconfig();
+    await dbConfig();
     const { email, password } = await req.json();
 
     const user = await myUserModel.findOne({ email });
